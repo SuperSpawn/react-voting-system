@@ -1,0 +1,100 @@
+
+
+.AdminOverseer-outer-container {
+    width: 100%;
+    height: fit-content;
+
+    background-color: cyan;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+
+    font-size: 1.6rem;
+}
+
+.AdminOverseer-inner-container {
+    background-color: orange;
+
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    align-items: center;
+
+    border: 2px solid black;
+
+    width: 60rem;
+    height: fit-content;
+
+    gap: 2rem;
+    padding: 3rem 0;
+}
+.AdminOverseer-inner-container > button {
+    background-color: cyan;
+    font-size: 2rem;
+    padding: 1rem 5rem;
+    border-radius: 20rem;
+}
+.AdminOverseer-inner-container > button:hover {
+    cursor: pointer;
+    background-color: blue;
+}
+
+
+.users-table-slot {
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+
+    font-size: 2rem;
+}
+.x-slot:hover {
+    background-color: red;
+    color: white;
+    cursor: pointer;
+}
+
+
+.user-voted {
+    background-color: lime;
+    color: black;
+}
+.user-didnt-vote {
+    background-color: red;
+    color: white;
+}
+
+
+#total-votes {
+    color: white;
+    font-size: 4rem;
+}
+#AdminOverseer-title {
+    font-size: 3rem;
+    text-decoration: underline;
+}
+
+
+@media (max-width: 768px) {
+    .AdminOverseer-inner-container {
+        border: 0;
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

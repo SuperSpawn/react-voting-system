@@ -1,0 +1,69 @@
+
+
+.Candidate {
+    background-color: cyan;
+    color: black;
+    border: 2px solid black;
+    border-radius: 20px;
+
+    width: 27rem;
+    height: 30rem;
+
+    text-align: center;
+    padding: 2rem 4rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    font-size: 3rem;
+}
+.Candidate > h4 {
+    background-color: white;
+    padding: 1rem 1rem;
+    border: 1px solid black;
+    border-radius: 10rem;
+}
+.Candidate > h5 {
+    background-color: white;
+    padding: 0.3rem;
+    border: 1px solid black;
+    border-radius: 10rem;
+}
+.Candidate-button {
+    background-color:lime;
+    color: black;
+    padding: 0.5rem;
+    border-radius: 10rem;
+}
+.Candidate-button:hover {
+    cursor: pointer;
+    background-color:springgreen;
+}
+
+.Candidate-chosen {
+    background-color: lime;
+
+}
+
+.Candidate-button-disabled {
+    background-color: grey;
+    color: #333;
+    padding: 0.5rem;
+    border-radius: 10rem;
+}
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+    .Candidate {
+        width: 100%;
+        height: 100vh;
+    }
+}

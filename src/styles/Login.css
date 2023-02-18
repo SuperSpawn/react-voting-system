@@ -1,0 +1,38 @@
+
+.error-message {
+    color: red;
+}
+
+.Login-container {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    background-color: lime;
+    color: white;
+
+    font-size: 15rem;
+}
+
+.Login-title-container {
+    text-decoration: underline;
+}
+
+.button-container > button {
+    padding: 1rem 5rem;
+    background-color: cyan;
+    color: white;
+    border: 1px solid black;
+    border-radius: 10rem;
+}
+.button-container > button:hover {
+    background-color: orange;
+    color: black;
+    cursor: pointer;
+}
+
