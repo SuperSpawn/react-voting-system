@@ -36,7 +36,7 @@ function GetPostVoteButtons(
         setSelectedCandidate(-1);//reset vote
     }
     function submitVote() {
-        usersWhoVoted[currentUser.id] = true;
+        usersWhoVoted[currentUser.id] = selectedCandidate;
         setPageState(0);//login screen
     }
 

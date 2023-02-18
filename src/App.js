@@ -11,17 +11,17 @@ import candidates from './data/candidates'
 
 const usersWhoVoted = [];
 for(let i of users) {
-  usersWhoVoted[i.id] = false;
+  usersWhoVoted[i.id] = -1;
 }
 
 function App() {
 
   const [pageState, setPageState] = useState(0);
   const [currentUser, setCurrentUser] = useState(null);
-  //const [usersVoted, setUsersVoted] = useState([]);
-
-
+  const [usersArray, setUsersArray] = useState(users);
+  const [pageNumber, setPageNumber] = useState(0);
   
+  console.log(pageNumber)
 
   switch(pageState) {
     case 0: //login page
@@ -45,11 +45,14 @@ function App() {
       return (
         <AdminOverseer
           voted={usersWhoVoted}
-          users={users}
+          users={usersArray}
+          setUsers={setUsersArray}
+          setPageNumber={setPageNumber}
+          candidates={candidates}
         />  
       )
     default: return(
-      <div></div>
+      <div>pageNumber</div>
     )
   }
 }

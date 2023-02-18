@@ -8,10 +8,23 @@ function GetUsersTable(props) {
     const users = props.users;
 
 
-    return users.map(function (user) {
+    return users.map(function (user, index) {
+
+        function removeUser() {
+            users.splice(index, 1);
+            props.setUsers(users);
+            props.setPageNumber(index);
+            
+            console.log(usersWhoVoted[index]);
+            if(usersWhoVoted[index] !== -1 && usersWhoVoted[index]) {
+                props.candidates[usersWhoVoted[index]].votes--;
+            }
+            
+        }
+
         if(user.type === 'admin') {
             return (
-                <tr className='users-table-row'>
+                <tr key={index} className='users-table-row'>
                     <td className='users-table-slot'></td>
                     <td className='users-table-slot'>{user.name}</td>
                     <td className='users-table-slot'>{user.email}</td>
@@ -22,26 +35,26 @@ function GetUsersTable(props) {
             )
         }
 
-        if(usersWhoVoted[user.id] === true) {
+        if(usersWhoVoted[user.id] !== -1) {
             return (
-                <tr className='users-table-row'>
-                    <td className='users-table-slot x-slot'>X</td>
+                <tr key={index} className='users-table-row'>
+                    <td index={index} className='users-table-slot x-slot' onClick={removeUser}>X</td>
                     <td className='users-table-slot'>{user.name}</td>
                     <td className='users-table-slot'>{user.email}</td>
                     <td className='users-table-slot user-voted'>
-                        {usersWhoVoted[user.id] === true ? 'true' : 'false'}
+                        {usersWhoVoted[user.id] !== -1 ? 'true' : 'false'}
                     </td>
                 </tr>
             )
         }
         else {
             return (
-                <tr className='users-table-row'>
-                    <td className='users-table-slot x-slot'>X</td>
+                <tr key={index} className='users-table-row'>
+                    <td index={index} className='users-table-slot x-slot' onClick={removeUser}>X</td>
                     <td className='users-table-slot'>{user.name}</td>
                     <td className='users-table-slot'>{user.email}</td>
                     <td className='users-table-slot user-didnt-vote'>
-                        {usersWhoVoted[user.id] === true ? 'true' : 'false'}
+                        {usersWhoVoted[user.id] !== -1 ? 'true' : 'false'}
                     </td>
                 </tr>
             )
@@ -55,7 +68,7 @@ function AdminOverseer(props) {
     const usersWhoVoted = props.voted;
     let numberOfVotes = 0;
     for(let i of props.users) {
-        if(usersWhoVoted[i.id] === true) ++numberOfVotes;
+        if(usersWhoVoted[i.id] !== -1) ++numberOfVotes;
     }
 
     return (
@@ -73,6 +86,9 @@ function AdminOverseer(props) {
                     <GetUsersTable
                         voted={props.voted}
                         users={props.users}
+                        setUsers={props.setUsers}
+                        setPageNumber={props.setPageNumber}
+                        candidates={props.candidates}
                     />
                 </table>
                 <button>Go to Voting Statistics</button>
