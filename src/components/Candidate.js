@@ -21,11 +21,14 @@ function CandidateButton({selectedCandidate, clickOnCandidate}) {
     }
 }
 
-function Candidate({name, votes, setSelectedCandidate, index, selectedCandidate}) {
+function Candidate(
+    {name, votes, setSelectedCandidate, index, 
+        selectedCandidate, candidates}
+    ) {
 
     function clickOnCandidate() {
+        candidates[index].votes++;
         setSelectedCandidate(index);
-        console.log(index);
     }
 
     return (

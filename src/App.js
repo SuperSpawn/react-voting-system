@@ -10,17 +10,15 @@ import candidates from './data/candidates'
 
 
 const usersWhoVoted = [];
-  for(let i of users) {
-    usersWhoVoted[i.id] = false;
-  }
-
+for(let i of users) {
+  usersWhoVoted[i.id] = false;
+}
 
 function App() {
 
   const [pageState, setPageState] = useState(0);
   const [currentUser, setCurrentUser] = useState(null);
   //const [usersVoted, setUsersVoted] = useState([]);
-
 
 
   

@@ -19,6 +19,7 @@ function GetCandidates({candidates, selectedCandidate, setSelectedCandidate}) {
                     setSelectedCandidate={setSelectedCandidate}
                     index={index}
                     selectedCandidate={selectedCandidate}
+                    candidates={candidates}
                 />
             )
         })
@@ -27,10 +28,11 @@ function GetCandidates({candidates, selectedCandidate, setSelectedCandidate}) {
 
 function GetPostVoteButtons(
     {selectedCandidate, setSelectedCandidate, 
-        setPageState, currentUser, usersWhoVoted}
+        setPageState, currentUser, usersWhoVoted, candidates}
     ) {
 
     function reVote() {
+        candidates[selectedCandidate].votes--;
         setSelectedCandidate(-1);//reset vote
     }
     function submitVote() {
@@ -75,6 +77,7 @@ function Voting({candidates, currentUser, setPageState, usersWhoVoted}) {
                 setPageState={setPageState}
                 currentUser={currentUser}
                 usersWhoVoted={usersWhoVoted}
+                candidates={candidates}
             />   
         </div>
     )

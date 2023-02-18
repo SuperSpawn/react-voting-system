@@ -3,8 +3,15 @@ const users = [
       id: "T4LA7Z048I",
       name: 'Talal Zoabi',
       password: '1234',
-      type: 'user',
+      type: 'admin',
       email: 'talal'
+    },
+    {
+      id: "DEADBEEF",
+      name: 'Adam Sembly',
+      password: '1234',
+      type: 'user',
+      email: 'assembly'
     },
     {
       id: "7hZ2Q8cE7V",
