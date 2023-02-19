@@ -5,6 +5,7 @@ import Login from './components/Login'
 import Voting from './components/Voting'
 import AdminOverseer from './components/AdminOverseer'
 import AdminStats from './components/AdminStats'
+import VotingConclude from './components/VotingConclude'
 
 import users from './data/users'
 import candidates from './data/candidates'
@@ -40,6 +41,7 @@ function App() {
           currentUser={currentUser}
           setPageState={setPageState}
           usersWhoVoted={usersWhoVoted}
+          users={usersArray}
         />
       )
     case 2: //admin - users page
@@ -58,6 +60,12 @@ function App() {
         <AdminStats
           candidates={candidates}
           setPageState={setPageState}
+        />
+      )
+    case 4:
+      return (
+        <VotingConclude
+          candidates={candidates}
         />
       )
     default: return(

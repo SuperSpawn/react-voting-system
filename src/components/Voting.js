@@ -28,7 +28,7 @@ function GetCandidates({candidates, selectedCandidate, setSelectedCandidate}) {
 
 function GetPostVoteButtons(
     {selectedCandidate, setSelectedCandidate, 
-        setPageState, currentUser, usersWhoVoted, candidates}
+        setPageState, currentUser, usersWhoVoted, candidates, users}
     ) {
 
     function reVote() {
@@ -37,7 +37,15 @@ function GetPostVoteButtons(
     }
     function submitVote() {
         usersWhoVoted[currentUser.id] = selectedCandidate;
-        setPageState(0);//login screen
+        let notDone = false;
+        for(let i of users) {
+            if(usersWhoVoted[i.id] === -1) {
+                notDone = true;
+            }
+        }
+
+        if(notDone === false) setPageState(4) //go to done page
+        else    setPageState(0);//login screen
     }
 
 
@@ -62,7 +70,7 @@ function GetPostVoteButtons(
 
 
 
-function Voting({candidates, currentUser, setPageState, usersWhoVoted}) {
+function Voting({candidates, currentUser, setPageState, usersWhoVoted, users}) {
     const [selectedCandidate, setSelectedCandidate] = useState(-1)
     return (
         <div className='Voting-container'>
@@ -78,6 +86,7 @@ function Voting({candidates, currentUser, setPageState, usersWhoVoted}) {
                 currentUser={currentUser}
                 usersWhoVoted={usersWhoVoted}
                 candidates={candidates}
+                users={users}
             />   
         </div>
     )
