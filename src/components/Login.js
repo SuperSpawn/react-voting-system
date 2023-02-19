@@ -22,7 +22,7 @@ function validateUser(email, password, setError,
         //error message
         setError(true);
     }
-    else if(usersWhoVoted[chosen[0].id] === true) {
+    else if(usersWhoVoted[chosen[0].id] !== -1) {
         setError(true);
     }
     else {
