@@ -4,6 +4,7 @@ import React,{useState} from 'react';
 import Login from './components/Login'
 import Voting from './components/Voting'
 import AdminOverseer from './components/AdminOverseer'
+import AdminStats from './components/AdminStats'
 
 import users from './data/users'
 import candidates from './data/candidates'
@@ -49,7 +50,15 @@ function App() {
           setUsers={setUsersArray}
           setPageNumber={setPageNumber}
           candidates={candidates}
+          setPageState={setPageState}
         />  
+      )
+    case 3:
+      return (
+        <AdminStats
+          candidates={candidates}
+          setPageState={setPageState}
+        />
       )
     default: return(
       <div>pageNumber</div>

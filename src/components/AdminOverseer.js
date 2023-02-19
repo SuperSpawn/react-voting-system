@@ -71,6 +71,13 @@ function AdminOverseer(props) {
         if(usersWhoVoted[i.id] !== -1) ++numberOfVotes;
     }
 
+    function logout() {
+        props.setPageState(0);
+    }
+    function gotoStats() {
+        props.setPageState(3);
+    }
+
     return (
         <div className='AdminOverseer-outer-container'>
             <div className='AdminOverseer-inner-container'>
@@ -83,6 +90,7 @@ function AdminOverseer(props) {
                         <td className='users-table-slot'>Email</td>
                         <td className='users-table-slot'>Did vote</td>
                     </tr>
+                    
                     <GetUsersTable
                         voted={props.voted}
                         users={props.users}
@@ -90,8 +98,10 @@ function AdminOverseer(props) {
                         setPageNumber={props.setPageNumber}
                         candidates={props.candidates}
                     />
+                    
                 </table>
-                <button>Go to Voting Statistics</button>
+                <button onClick={gotoStats}>Go to Voting Statistics</button>
+                <button onClick={logout}>Logout</button>
             </div>
         </div>
     )
